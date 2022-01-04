@@ -58,6 +58,9 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- Snippets source for nvim-cmp
   use "L3MON4D3/LuaSnip" -- Snippets plugin
 
+  -- Telescope
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
   -- Theming
   use "arcticicestudio/nord-vim"
 
