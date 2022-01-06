@@ -87,4 +87,10 @@ keymap('n', '<leader>dA', ':lua require"debugHelper".attachToRemote()<CR>', opts
 keymap('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>', opts)
 keymap('n', '<leader>d?', ':lua local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes)<CR>', opts)
 
+--Nvim-Tree
 keymap('n', '<leader>n', '<cmd>NvimTreeToggle<CR>', opts)
+
+-- Commentary
+keymap('n', '<leader>/', '<cmd>:Commentary<CR>', opts)
+keymap('v', '<leader>/', '<cmd>:Commentary<CR>', opts)
+

@@ -76,6 +76,9 @@ return packer.startup(function(use)
   use "vim-airline/vim-airline"
   use "vim-airline/vim-airline-themes"
 
+  -- Commentary
+  use "tpope/vim-commentary"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
