@@ -74,3 +74,5 @@ keymap("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
 keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
 
+keymap('n', '<F5>', "<cmd>lua require('debug').attach()<CR>", opts)
+keymap('n', '<F9>', ':lua require"dap".toggle_breakpoint()<CR>', opts)
