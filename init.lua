@@ -1,8 +1,9 @@
-require "keymaps"
 require "plugins"
 require "treesitter"
 require "tlscp"
 require "lsp"
-require "debug"
+require "dap-debug"
 require "colorscheme"
 require "options"
+require "keymaps"
+
