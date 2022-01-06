@@ -6,9 +6,9 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
---keymap("n", "<Space>", "<Nop>", opts)
---vim.g.mapleader = " "
---vim.g.maplocalleader = " "
+keymap("n", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -74,5 +74,20 @@ keymap("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
 keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
 
-keymap('n', '<F5>', "<cmd>lua require('debug').attach()<CR>", opts)
-keymap('n', '<F9>', ':lua require"dap".toggle_breakpoint()<CR>', opts)
+-- NVim-DAP
+keymap('n', '<F9>', ':lua require"dap".toggle_breakpoint()<CR>',opts)
+keymap('n', '<F11>', ':lua require"dap".step_out()<CR>', opts)
+keymap('n', '<F10>', ':lua require"dap".step_into()<CR>', opts)
+keymap('n', '<F6>', ':lua require"dap".step_over()<CR>', opts)
+keymap('n', '<F5>', ':lua require"dap".continue()<CR>', opts)
+keymap('n', '<leader>dH', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+keymap('n', '<leader>dn', ':lua require"dap".run_to_cursor()<CR>', opts)
+keymap('n', '<leader>dk', ':lua require"dap".up()<CR>', opts)
+keymap('n', '<leader>dj', ':lua require"dap".down()<CR>', opts)
+keymap('n', '<leader>dc', ':lua require"dap".terminate()<CR>', opts)
+keymap('n', '<leader>dr', ':lua require"dap".repl.toggle({}, "vsplit")<CR><C-w>l', opts)
+keymap('n', '<leader>de', ':lua require"dap".set_exception_breakpoints({"all"})<CR>', opts)
+keymap('n', '<leader>da', ':lua require"debugHelper".attach()<CR>', opts)
+keymap('n', '<leader>dA', ':lua require"debugHelper".attachToRemote()<CR>', opts)
+keymap('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>', opts)
+keymap('n', '<leader>d?', ':lua local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes)<CR>', opts)
