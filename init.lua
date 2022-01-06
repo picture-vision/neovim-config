@@ -5,6 +5,7 @@ require "lsp"
 require "dap-debug"
 require "colorscheme"
 require "nvimtree"
+require "airline"
 require "options"
 require "keymaps"
 
