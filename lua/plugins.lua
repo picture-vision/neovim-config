@@ -65,6 +65,10 @@ return packer.startup(function(use)
   -- Telescope
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
+  -- NVim-Tree
+  use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
+
   -- Theming
   use "arcticicestudio/nord-vim"
 

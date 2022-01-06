@@ -4,6 +4,7 @@ require "tlscp"
 require "lsp"
 require "dap-debug"
 require "colorscheme"
+require "nvimtree"
 require "options"
 require "keymaps"
 
