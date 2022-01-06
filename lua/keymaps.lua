@@ -32,8 +32,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Naviagate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<Tab>", ":bnext<CR>", opts)
+keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -56,23 +56,18 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
---Add leader shortcuts
+-- Telescope
 keymap('n', '<leader>tb', "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
 keymap('n', '<leader>tf', "<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>", opts)
 keymap('n', '<leader>tl', "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
-keymap('n', '<leader>sb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
-keymap('n', '<leader>th', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
-keymap('n', '<leader>tt', [[<cmd>lua require('telescope.builtin').tags()<CR>]], { noremap = true, silent = true })
-keymap('n', '<leader>td', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { noremap = true, silent = true })
-keymap('n', '<leader>to', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], { noremap = true, silent = true })
-keymap('n', '<leader>t?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
+keymap('n', '<leader>sb', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", opts)
+keymap('n', '<leader>th', "<cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
+keymap('n', '<leader>tt', "<cmd>lua require('telescope.builtin').tags()<CR>", opts)
+keymap('n', '<leader>td', "<cmd>lua require('telescope.builtin').grep_string()<CR>", opts)
+keymap('n', '<leader>to', "<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>", opts)
+keymap('n', '<leader>t?', "<cmd>lua require('telescope.builtin').oldfiles()<CR>", opts)
 
--- Custom
-keymap("n", "<TAB>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
-keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
+-- LSP check lsp/handlers.lua
 
 -- NVim-DAP
 keymap('n', '<F9>', ':lua require"dap".toggle_breakpoint()<CR>',opts)

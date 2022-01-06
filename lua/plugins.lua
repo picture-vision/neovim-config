@@ -70,7 +70,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
 
   -- Theming
-  use "arcticicestudio/nord-vim"
+  use "joshdick/onedark.vim"
 
   -- Airline
   use "vim-airline/vim-airline"
