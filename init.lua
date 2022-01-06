@@ -1,7 +1,7 @@
+require "keymaps"
 require "plugins"
 require "treesitter"
 require "tlscp"
 require "lsp"
 require "colorscheme"
 require "options"
-require "keymaps"

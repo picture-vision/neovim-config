@@ -3,25 +3,24 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
+local attach_func = require("lsp.handlers").on_attach
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = { 'bashls', 'cssls', 'intelephense', 'jsonls', 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
+    on_attach = attach_func,
     capabilities = capabilities,
   }
 end
 
 local pid = vim.fn.getpid()
--- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
-local omnisharp_bin = "/home/fw/.omnisharp/run"
--- local omnisharp_bin = "/home/fw/.omnisharp6/OmniSharp"
--- on Windows
--- local omnisharp_bin = "/path/to/omnisharp/OmniSharp.exe"
+-- local omnisharp_bin = "/home/fw/.omnisharp/run"
+local omnisharp_bin = "/home/fw/.omnisharp/OmniSharp"
 require'lspconfig'.omnisharp.setup{
     capabilities = capabilities,
     cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+    on_attach = attach_func
 }
 
 -- Set completeopt to have a better completion experience
