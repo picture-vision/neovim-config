@@ -61,6 +61,7 @@ return packer.startup(function(use)
   -- Debugging
   use 'mfussenegger/nvim-dap'
   use 'theHamsta/nvim-dap-virtual-text'
+  use 'Pocco81/DAPInstall.nvim'
 
   -- Telescope
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
