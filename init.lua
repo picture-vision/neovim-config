@@ -8,4 +8,5 @@ require "nvimtree"
 require "airline"
 require "options"
 require "keymaps"
+require "colorizr"
 
