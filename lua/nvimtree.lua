@@ -36,9 +36,14 @@ require'nvim-tree'.setup {
     custom = {}
   },
   git = {
-    enable = false,
+    enable = true,
     ignore = true,
     timeout = 500,
+  },
+  actions = {
+    open_file = {
+        quit_on_open = true,
+    }
   },
   view = {
     width = 30,

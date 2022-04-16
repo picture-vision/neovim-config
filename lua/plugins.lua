@@ -74,7 +74,8 @@ return packer.startup(function(use)
   use "norcalli/nvim-colorizer.lua"
 
   -- Theming
-  use "joshdick/onedark.vim"
+  use 'shaunsingh/nord.nvim'
+  -- use "joshdick/onedark.vim"
 
   -- Airline
   use "vim-airline/vim-airline"
