@@ -44,45 +44,41 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "numToStr/Comment.nvim" -- Easily comment stuff
+  use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
+  use "nvim-lualine/lualine.nvim"
+
+  -- Colorschemes
+  use "EdenEast/nightfox.nvim"
+
+  -- cmp plugins
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "saadparwaiz1/cmp_luasnip" -- Snippets source for nvim-cmp
+  use "L3MON4D3/LuaSnip" -- Snippets plugin
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+  use 'nvim-telescope/telescope-media-files.nvim'
 
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    run = ':TSUpdate'
+    run = ":TSUpdate",
   }
 
-  -- LSP Config
-  use "neovim/nvim-lspconfig"
-  use "hrsh7th/nvim-cmp" -- Autocompletion plugin
-  use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
-  use "saadparwaiz1/cmp_luasnip" -- Snippets source for nvim-cmp
-  use "L3MON4D3/LuaSnip" -- Snippets plugin
+  use "JoosepAlviste/nvim-ts-context-commentstring"
 
-  -- Debugging
-  use 'mfussenegger/nvim-dap'
-  use 'theHamsta/nvim-dap-virtual-text'
-  use 'Pocco81/DAPInstall.nvim'
-
-  -- Telescope
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-
-  -- NVim-Tree
-  use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
-
-  -- Colorizer
-  use "norcalli/nvim-colorizer.lua"
-
-  -- Theming
-  use 'shaunsingh/nord.nvim'
-  -- use "joshdick/onedark.vim"
-
-  -- Airline
-  use "vim-airline/vim-airline"
-  use "vim-airline/vim-airline-themes"
-
-  -- Commentary
-  use "tpope/vim-commentary"
+  -- Git
+  use "lewis6991/gitsigns.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -90,4 +86,3 @@ return packer.startup(function(use)
     require("packer").sync()
   end
 end)
-

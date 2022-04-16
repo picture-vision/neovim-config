@@ -6,7 +6,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("n", "<Space>", "<Nop>", opts)
+keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -25,19 +25,21 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize +2<CR>", opts)
+keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Naviagate buffers
-keymap("n", "<Tab>", ":bnext<CR>", opts)
-keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
+-- Navigate buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- Insert --
+-- Press jk fast to enter
+keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -56,41 +58,16 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Telescope
-keymap('n', '<leader>tb', "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
-keymap('n', '<leader>tf', "<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>", opts)
-keymap('n', '<leader>tl', "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
-keymap('n', '<leader>sb', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", opts)
-keymap('n', '<leader>th', "<cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
-keymap('n', '<leader>tt', "<cmd>lua require('telescope.builtin').tags()<CR>", opts)
-keymap('n', '<leader>td', "<cmd>lua require('telescope.builtin').grep_string()<CR>", opts)
-keymap('n', '<leader>to', "<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>", opts)
-keymap('n', '<leader>t?', "<cmd>lua require('telescope.builtin').oldfiles()<CR>", opts)
+-- Terminal --
+-- Better terminal navigation
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
--- LSP check lsp/handlers.lua
+-- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
--- NVim-DAP
-keymap('n', '<F9>', ':lua require"dap".toggle_breakpoint()<CR>',opts)
-keymap('n', '<F11>', ':lua require"dap".step_out()<CR>', opts)
-keymap('n', '<F10>', ':lua require"dap".step_into()<CR>', opts)
-keymap('n', '<F6>', ':lua require"dap".step_over()<CR>', opts)
-keymap('n', '<F5>', ':lua require"dap".continue()<CR>', opts)
-keymap('n', '<leader>dH', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
-keymap('n', '<leader>dn', ':lua require"dap".run_to_cursor()<CR>', opts)
-keymap('n', '<leader>dk', ':lua require"dap".up()<CR>', opts)
-keymap('n', '<leader>dj', ':lua require"dap".down()<CR>', opts)
-keymap('n', '<leader>dc', ':lua require"dap".terminate()<CR>', opts)
-keymap('n', '<leader>dr', ':lua require"dap".repl.toggle({}, "vsplit")<CR><C-w>l', opts)
-keymap('n', '<leader>de', ':lua require"dap".set_exception_breakpoints({"all"})<CR>', opts)
--- keymap('n', '<leader>da', ':lua require"debugHelper".attach()<CR>', opts)
--- keymap('n', '<leader>dA', ':lua require"debugHelper".attachToRemote()<CR>', opts)
-keymap('n', '<leader>di', ':lua require"dap.ui.widgets".hover()<CR>', opts)
-keymap('n', '<leader>d?', ':lua local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes)<CR>', opts)
-
---Nvim-Tree
-keymap('n', '<leader>n', '<cmd>NvimTreeToggle<CR>', opts)
-
--- Commentary
-keymap('n', '<leader>/', '<cmd>:Commentary<CR>', opts)
-keymap('v', '<leader>/', '<cmd>:Commentary<CR>', opts)
-
+-- Nvimtree
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
