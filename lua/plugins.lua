@@ -55,6 +55,9 @@ return packer.startup(function(use)
   -- Colorschemes
   use "EdenEast/nightfox.nvim"
 
+  -- Show Colors
+  use "norcalli/nvim-colorizer.lua"
+
   -- cmp plugins
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/nvim-cmp" -- The completion plugin
