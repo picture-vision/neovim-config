@@ -6,3 +6,6 @@ end
 require("lsp.lsp-installer")
 require("lsp.handlers").setup()
 require "lsp.nullls"
+require'lspconfig'.dartls.setup{
+  cmd = { "dart", "./snapshots/analysis_server.dart.snapshot", "--lsp" }
+}
